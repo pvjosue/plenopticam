@@ -82,27 +82,28 @@ class LfpExtractor(object):
             self.vp_img_arr = obj._vp_img_arr
             del obj
 
-        if not self.sta.interrupt:
-            obj = LfpContrast(vp_img_arr=self.vp_img_arr, cfg=self.cfg, sta=self.sta, p_lo=0.005, p_hi=0.999)
-            # automatic white balance
-            if self.cfg.params[self.cfg.opt_awb_]:
-                obj.auto_wht_bal()
-            else:
-                obj.channel_bal()
-            obj.p_lo = 0
-            obj.p_hi = 1
+        #pvjosue Disable default auto white balance 
+        # if not self.sta.interrupt:
+        #     obj = LfpContrast(vp_img_arr=self.vp_img_arr, cfg=self.cfg, sta=self.sta, p_lo=0.005, p_hi=0.999)
+        #     # automatic white balance
+        #     if self.cfg.params[self.cfg.opt_awb_]:
+        #         obj.auto_wht_bal()
+        #     else:
+        #         obj.channel_bal()
+        #     obj.p_lo = 0
+        #     obj.p_hi = 1
 
-            # automatic saturation
-            if self.cfg.params[self.cfg.opt_sat_]:
-                obj.sat_bal()
+        #     # automatic saturation
+        #     if self.cfg.params[self.cfg.opt_sat_]:
+        #         obj.sat_bal()
 
-            self.vp_img_arr = obj.vp_img_arr
-            del obj
+        #     self.vp_img_arr = obj.vp_img_arr
+        #     del obj
 
         # write viewpoint data to hard drive
-        if self.cfg.params[self.cfg.opt_view] and not self.sta.interrupt:
-            obj = LfpExporter(vp_img_arr=self.vp_img_arr, cfg=self.cfg, sta=self.sta)
-            obj.write_viewpoint_data()
-            del obj
+        # if self.cfg.params[self.cfg.opt_view] and not self.sta.interrupt:
+        #     obj = LfpExporter(vp_img_arr=self.vp_img_arr, cfg=self.cfg, sta=self.sta)
+        #     obj.write_viewpoint_data()
+        #     del obj
 
         return True

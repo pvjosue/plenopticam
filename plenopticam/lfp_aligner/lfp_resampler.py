@@ -103,7 +103,7 @@ class LfpResampler(LfpMicroLenses):
     def resample_rec(self):
 
         # initialize variables required for micro image resampling process
-        self._lfp_out = np.zeros([self._LENS_Y_MAX * self._M, self._LENS_X_MAX * self._M, self._DIMS[2]])
+        self._lfp_out = np.zeros([self._LENS_Y_MAX * self._M, self._LENS_X_MAX * self._M,1])# self._DIMS[2]])
 
         # iterate over each MIC
         for ly in range(self._LENS_Y_MAX):

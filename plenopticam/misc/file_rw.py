@@ -50,7 +50,7 @@ def save_img_file(img, file_path=None, file_type=None):
 
     file_path = os.getcwd() if file_path is None else file_path
     ext = os.path.splitext(file_path)[-1][1:]
-    img = place_dnp(img)
+    img = place_dnp(img.squeeze())
 
     if not file_type:
         file_type = ext if ext == 'png' or ext == 'tiff' else 'tiff' if img.dtype == 'uint16' else 'png'
