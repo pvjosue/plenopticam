@@ -26,11 +26,11 @@ cfg.params['opt_colo'] = 0
 cfg.params['opt_view'] = 1
 cfg.params['ptc_leng'] = 33
 cfg._dir_path = "calib"
-cfg.params[cfg.cal_meta] = '/media/jpv/DATA/Documents/TUM/LF/code/plenopticam/white2500.json'
+cfg.params[cfg.cal_meta] = '/home/page/code/plenopticam/white2500.json'
 cfg.params[cfg.cal_path] = 'cfg.json'
 
 
-img_dir = "/media/jpv/DATA/Documents/TUM/LF/code/plenopticam/"
+img_dir = "/home/page/code/plenopticam/"
 gt_img_name = 'white2500.bmp'
 image = Image.open(img_dir+gt_img_name)
 whiteImg = TF.to_tensor(image)
